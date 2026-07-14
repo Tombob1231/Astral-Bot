@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-const fs = require("fs");
-
 console.log("Files in project:");
 console.log(fs.readdirSync(__dirname));
 
