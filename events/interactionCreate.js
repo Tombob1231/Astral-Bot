@@ -17,8 +17,28 @@ module.exports = {
 
             if (!command) return;
 
-            await command.execute(interaction);
-            return;
+           try {
+
+    console.log(`Running command: ${interaction.commandName}`);
+
+    await command.execute(interaction);
+
+    console.log(`Finished command: ${interaction.commandName}`);
+
+} catch (err) {
+
+    console.error(err);
+
+    if (!interaction.replied && !interaction.deferred) {
+        await interaction.reply({
+            content: "❌ There was an error while running this command.",
+            ephemeral: true
+        });
+    }
+
+}
+
+return;
         }
 
         // Buttons
