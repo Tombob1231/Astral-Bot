@@ -1,11 +1,14 @@
 const { EmbedBuilder } = require("discord.js");
 const config = require("../config");
-const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     name: "guildMemberAdd",
 
     async execute(member) {
+
+        console.log(`${member.user.tag} joined the server.`);
+
+        // Welcome channel
 
         // Welcome channel
         const welcomeChannel = member.guild.channels.cache.get("1526675634351505658");
