@@ -19,9 +19,10 @@ module.exports = {
 
            try {
 
-    console.log(
-    `Running command: ${interaction.commandName} ${interaction.options.getSubcommand?.() ?? ""}`
-);
+   console.log("🚨 INTERACTION RECEIVED");
+console.log(`Running command: ${interaction.commandName}`);
+        
+        
 
     await command.execute(interaction);
 
