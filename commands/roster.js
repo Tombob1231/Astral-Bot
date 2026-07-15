@@ -76,8 +76,8 @@ module.exports = {
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
 
 👤 **Player 2**
-🎮 Epic: Player2
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player2/overview)
+🎮 Epic: Vermillion
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/steam/76561198352940173/overview)
 
 👤 **Player 3**
 🎮 Epic: Player3
