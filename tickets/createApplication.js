@@ -48,17 +48,19 @@ module.exports = async (interaction, type) => {
             case "team":
                 channelName = `team-${interaction.user.username}`;
                 title = "🎮 Team Application";
-                questions = 
-`1️⃣What is your current/Peak rank?
+questions =
+`1️⃣ What is your current/peak rank?
 
-2️⃣ What is your availibility?
+2️⃣ What is your availability?
 
-3️⃣ What Kind of playstlye do you have?
+3️⃣ What kind of playstyle do you have?
 
-4️⃣ What region Do you play in?
+4️⃣ What region do you play in?
 
-5️⃣ Why do you want to join Astral?`;
-                break;
+5️⃣ Why do you want to join Astral?
+
+6️⃣ Can you send your Rocket League Tracker profile?`;
+break;
 
             default:
                 return interaction.reply({
