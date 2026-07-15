@@ -17,31 +17,6 @@ module.exports = {
             .setImage("https://cdn.discordapp.com/attachments/1526902981516333186/1526914184489472190/Astral_Roster.png?ex=6a58c126&is=6a576fa6&hm=77db93beb7239f023f795fa42990503959abe56b41dc8af40c8e8b26cf5bd90c&")
 .addFields(
 {
-    name: "<:SSL:1526924642780971089> **SSL • Main Roster**",
-    value:
-`━━━━━━━━━━━━━━━━━━━━━━
-
-👑 **Captain**
-🎮 Epic: CaptainName
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
-
-👤 **Player 2**
-🎮 Epic: Player2
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player2/overview)
-
-👤 **Player 3**
-🎮 Epic: Player3
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
-
-━━━━━━━━━━━━━━━━━━━━━━
-
-🔄 **Substitutes**
-
-👤 **Player 4**
-🎮 Epic: Player4
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)`
-},
-{
     name: "<:GC2:1526924992686719047> <:GC3:1526924973862555708> **GC2 - GC3 • Main Roster**",
     value:
 `━━━━━━━━━━━━━━━━━━━━━━
@@ -58,13 +33,13 @@ module.exports = {
 🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
-━━━━━━━━━━━━━━━━━━━━━━
-
 🔄 **Substitutes**
 
 👤 **Player 4**
 🎮 Epic: Player4
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)`
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
+
+━━━━━━━━━━━━━━━━━━━━━━`
 },
 {
     name: "<:GC1:1526925006205091864> <:GC2:1526924992686719047> **GC1 - GC2 • Main Roster**",
@@ -83,13 +58,13 @@ module.exports = {
 🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
-━━━━━━━━━━━━━━━━━━━━━━
-
 🔄 **Substitutes**
 
 👤 **Player 4**
 🎮 Epic: Player4
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)`
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
+
+━━━━━━━━━━━━━━━━━━━━━━`
 },
 {
     name: "<:C3:1526925021883138118> <:GC1:1526925006205091864> **C3 - GC1 • Main Roster**",
@@ -108,13 +83,13 @@ module.exports = {
 🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
-━━━━━━━━━━━━━━━━━━━━━━
-
 🔄 **Substitutes**
 
 👤 **Player 4**
 🎮 Epic: Player4
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)`
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
+
+━━━━━━━━━━━━━━━━━━━━━━`
 },
 {
     name: "<:C1:1526925050329170161> <:C2:1526925034277310494> **C1 - C2 • Main Roster**",
@@ -133,13 +108,13 @@ module.exports = {
 🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
-━━━━━━━━━━━━━━━━━━━━━━
-
 🔄 **Substitutes**
 
 👤 **Player 4**
 🎮 Epic: Player4
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)`
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
+
+━━━━━━━━━━━━━━━━━━━━━━`
 }
 )
             .setFooter({
