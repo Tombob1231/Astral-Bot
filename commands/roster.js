@@ -22,21 +22,17 @@ module.exports = {
 `━━━━━━━━━━━━━━━━━━━━━━
 
 👑 **Captain**
-🎮 Epic: CaptainName
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
 
 👤 **Player 2**
-🎮 Epic: Player2
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player2/overview)
 
 👤 **Player 3**
-🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
 🔄 **Substitutes**
 
 👤 **Player 4**
-🎮 Epic: Player4
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
 
 ━━━━━━━━━━━━━━━━━━━━━━`
@@ -47,21 +43,17 @@ module.exports = {
 `━━━━━━━━━━━━━━━━━━━━━━
 
 👑 **Captain**
-🎮 Epic: CaptainName
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
 
-👤 **Player 2**
-🎮 Epic: Player2
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player2/overview)
+👤 **Vermillion**
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/steam/76561198352940173/overview)
 
 👤 **Player 3**
-🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
 🔄 **Substitutes**
 
 👤 **Player 4**
-🎮 Epic: Player4
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
 
 ━━━━━━━━━━━━━━━━━━━━━━`
@@ -72,21 +64,17 @@ module.exports = {
 `━━━━━━━━━━━━━━━━━━━━━━
 
 👑 **Captain**
-🎮 Epic: CaptainName
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
 
 👤 **Player 2**
-🎮 Epic: Vermillion
-🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/steam/76561198352940173/overview)
+🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
 👤 **Player 3**
-🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
 🔄 **Substitutes**
 
 👤 **Player 4**
-🎮 Epic: Player4
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
 
 ━━━━━━━━━━━━━━━━━━━━━━`
@@ -97,21 +85,17 @@ module.exports = {
 `━━━━━━━━━━━━━━━━━━━━━━
 
 👑 **Captain**
-🎮 Epic: CaptainName
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
 
 👤 **Player 2**
-🎮 Epic: Player2
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player2/overview)
 
 👤 **Player 3**
-🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
 🔄 **Substitutes**
 
 👤 **Player 4**
-🎮 Epic: Player4
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
 
 ━━━━━━━━━━━━━━━━━━━━━━`
@@ -122,21 +106,18 @@ module.exports = {
 `━━━━━━━━━━━━━━━━━━━━━━
 
 👑 **Captain**
-🎮 Epic: CaptainName
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/CaptainName/overview)
 
 👤 **Player 2**
-🎮 Epic: Player2
+
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player2/overview)
 
 👤 **Player 3**
-🎮 Epic: Player3
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player3/overview)
 
 🔄 **Substitutes**
 
 👤 **Player 4**
-🎮 Epic: Player4
 🔗 [Tracker Profile](https://rocketleague.tracker.network/rocket-league/profile/epic/Player4/overview)
 
 ━━━━━━━━━━━━━━━━━━━━━━`
