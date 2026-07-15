@@ -1,31 +1,56 @@
+const { EmbedBuilder } = require("discord.js");
+
 module.exports = {
-    name: 'guildMemberAdd',
+    name: "guildMemberAdd",
 
     async execute(member) {
 
-        // Change this to your welcome channel ID
-        const welcomeChannel = member.guild.channels.cache.get('1526675634351505658');
+        // Welcome channel
+        const welcomeChannel = member.guild.channels.cache.get("1526675634351505658");
 
-        // Change this to your Member role ID
-        const memberRole = member.guild.roles.cache.get('1526256428719935628');
+        // Member role
+        const memberRole = member.guild.roles.cache.get("1526256428719935628");
 
-        // Give the member role
+        // Give member role
         if (memberRole) {
-            await member.roles.add(memberRole);
+            await member.roles.add(memberRole).catch(console.error);
         }
 
-        // Send welcome message
-        if (welcomeChannel) {
-            welcomeChannel.send(`🎉 Welcome ${member}, and we’re happy to have you here!
+        if (!welcomeChannel) return;
 
-Here are a few things to get you started:
+        const welcomeEmbed = new EmbedBuilder()
+            .setColor("#8A2BE2")
+            .setTitle("🌌 Welcome to Astral!")
+            .setDescription(
+`Welcome ${member}!
 
-💬 General Chat: Head over to the general channel to introduce yourself and chat with everyone. <#1526675643180257331>
+⭐ **Together We Rise** ⭐
 
-📝 Apply Here: When you’re ready to join our teams, submit your application here: <#1526679515110182962>
+We're excited to have you join the Astral community!
 
-Feel free to ask questions, get involved, and enjoy being part of the community. Welcome again! 😊`
-            );
-        }
+## 🚀 Get Started
+
+💬 **General Chat**
+Head over to <#1526675643180257331> and introduce yourself.
+
+📝 **Applications**
+Interested in joining one of our teams? Apply in <#1526679515110182962>.
+
+🎫 **Need Help?**
+Open a support ticket and one of our staff members will assist you. <#1526675650747039755>
+
+Have fun, make new friends, and enjoy your stay with Astral! 💜`
+            )
+            .setImage("https://cdn.discordapp.com/attachments/1526902981516333186/1526904702602707074/Welcome_To_astral.png?ex=6a58b851&is=6a5766d1&hm=a95e2f7d2460076f22e4b871e7ddc316e4a3c1d6b1ccd6c32ce2242fa9564055&")
+            .setFooter({
+                text: `Member #${member.guild.memberCount} • Together We Rise`
+            })
+            .setTimestamp();
+
+        await welcomeChannel.send({
+            content: `🎉 Welcome ${member}!`,
+            embeds: [welcomeEmbed]
+        });
+
     },
 };
