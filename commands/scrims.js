@@ -12,7 +12,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setColor("#8A2BE2")
-            .setImage("YOUR_SCRIMS_BANNER_LINK")
+            .setImage("https://cdn.discordapp.com/attachments/1526902981516333186/1526951013041569973/Scrims.png?ex=6a58e372&is=6a5791f2&hm=fd7e6ac085588a6e4a6aea6d1d13d55b78de2738da54afc6069fd759e9bd5515&")
             .setDescription(`
 # 🗓 Upcoming Scrims
 
