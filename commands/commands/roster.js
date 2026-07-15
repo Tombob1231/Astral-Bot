@@ -1,3 +1,5 @@
+const config = require("../config");
+
 const {
     SlashCommandBuilder,
     EmbedBuilder
@@ -49,9 +51,24 @@ module.exports = {
             })
             .setTimestamp();
 
-        await interaction.reply({
-            embeds: [embed]
-        });
+     const channel = interaction.guild.channels.cache.get(config.rosterChannel);
 
-    },
+if (!channel) {
+    return interaction.reply({
+        content: "❌ Roster channel not found.",
+        ephemeral: true
+    });
+}
+
+await channel.send({
+    embeds: [embed]
+});
+
+await interaction.reply({
+    content: "✅ Rocket League roster has been posted.",
+    ephemeral: true
+});
+
+    }
+
 };
