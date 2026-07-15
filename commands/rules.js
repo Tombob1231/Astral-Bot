@@ -74,6 +74,14 @@ All members must follow Discord's Terms of Service and Community Guidelines.
         await interaction.reply({
             embeds: [embed]
         });
+        await interaction.channel.send({
+    embeds: [embed]
+});
+
+await interaction.reply({
+    content: "✅ Rules have been posted.",
+    ephemeral: true
+});
 
     }
 };
