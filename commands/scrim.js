@@ -134,12 +134,17 @@ module.exports = {
             });
         }
 
-       await interaction.reply({
+      await interaction.reply({
     content: "✅ Scrim added successfully!",
     ephemeral: true
 });
 
-await updateScrims(interaction.client);
+try {
+    await updateScrims(interaction.client);
+} catch (err) {
+    console.error("Update scrims failed:");
+    console.error(err);
+}
 
     }
 );
