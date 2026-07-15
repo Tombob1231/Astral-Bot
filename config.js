@@ -11,5 +11,7 @@ module.exports = {
 
     automodTimeout: 10,
 
-    automodWarnings: 3
+    automodWarnings: 3,
+
+    memberCountChannel: "1526906615284895774"
 };

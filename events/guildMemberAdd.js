@@ -1,4 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
+const config = require("../config");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     name: "guildMemberAdd",
@@ -15,7 +17,14 @@ module.exports = {
         if (memberRole) {
             await member.roles.add(memberRole).catch(console.error);
         }
+// Update member count channel
+const memberCountChannel = member.guild.channels.cache.get(config.memberCountChannel);
 
+if (memberCountChannel) {
+    await memberCountChannel
+        .setName(`👥 Members: ${member.guild.memberCount}`)
+        .catch(console.error);
+}
         if (!welcomeChannel) return;
 
         const welcomeEmbed = new EmbedBuilder()
