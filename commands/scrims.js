@@ -3,56 +3,70 @@ const {
     EmbedBuilder
 } = require("discord.js");
 
+const db = require("../database/database");
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("scrims")
         .setDescription("Displays Astral's upcoming scrims."),
 
-    async execute(interaction) {
+   async execute(interaction) {
 
-        const embed = new EmbedBuilder()
-            .setColor("#8A2BE2")
-            .setImage("https://cdn.discordapp.com/attachments/1526902981516333186/1526951013041569973/Scrims.png?ex=6a58e372&is=6a5791f2&hm=fd7e6ac085588a6e4a6aea6d1d13d55b78de2738da54afc6069fd759e9bd5515&")
-            .setDescription(`
-# 🗓 Upcoming Scrims
+    db.all(
+        "SELECT * FROM scrims ORDER BY id DESC LIMIT 5",
+        [],
+        async (err, rows) => {
 
-━━━━━━━━━━━━━━━━━━━━━━
+            if (err) {
+                console.error(err);
 
-⚔️ **Astral vs Team Nova**
+                return interaction.reply({
+                    content: "❌ Failed to load scrims.",
+                    ephemeral: true
+                });
+            }
 
-📅 Friday, 18 July
-🕖 7:00 PM BST
-🏆 Community League
-📺 [Watch Live](📺 Stream: TBA)
+            let description = "# 🗓 Upcoming Scrims\n\n";
 
-━━━━━━━━━━━━━━━━━━━━━━
+            if (rows.length === 0) {
 
-⚔️ **Astral vs Eclipse**
+                description += "No upcoming scrims.";
 
-📅 Sunday, 20 July
-🕗 8:00 PM BST
-🏆 Weekly Scrim
-📺 [Watch Live](📺 Stream: TBA)
+            } else {
 
-━━━━━━━━━━━━━━━━━━━━━━
+                for (const scrim of rows) {
 
-⚔️ **Astral vs Velocity**
+                    description +=
+`━━━━━━━━━━━━━━━━━━━━━━
 
-📅 Tuesday, 22 July
-🕗 8:30 PM BST
-🏆 RLCS Open
-📺 [Watch Live](📺 Stream: TBA)
+⚔️ **Astral vs ${scrim.opponent}**
 
-━━━━━━━━━━━━━━━━━━━━━━
-`)
-            .setFooter({
-                text: "⭐ Together We Rise ⭐"
-            })
-            .setTimestamp();
+📅 ${scrim.date}
+🕖 ${scrim.time}
+🏆 ${scrim.tournament}
+📺 ${scrim.stream}
 
-        await interaction.reply({
-            embeds: [embed]
-        });
+`;
+                }
+
+            }
+
+            const embed = new EmbedBuilder()
+                .setColor("#8A2BE2")
+                .setImage("https://cdn.discordapp.com/attachments/1526902981516333186/1526951013041569973/Scrims.png?ex=6a58e372&is=6a5791f2&hm=fd7e6ac085588a6e4a6aea6d1d13d55b78de2738da54afc6069fd759e9bd5515&")
+                .setDescription(description)
+                .setFooter({
+                    text: "⭐ Together We Rise ⭐"
+                })
+                .setTimestamp();
+
+               await interaction.reply({
+                embeds: [embed]
+            });
+
+        }
+    );
 
     }
+
 };
