@@ -8,9 +8,18 @@ const config = require("../config");
 
 module.exports = async (interaction) => {
 
-      if (!interaction.member.roles.cache.has(config.modRole)) {
+    // Only moderators can claim
+    if (!interaction.member.roles.cache.has(config.modRole)) {
         return interaction.reply({
             content: "❌ Only moderators can claim tickets.",
+            ephemeral: true
+        });
+    }
+
+    // Prevent claiming twice
+    if (interaction.message.components[0].components[0].data.disabled) {
+        return interaction.reply({
+            content: "❌ This ticket has already been claimed.",
             ephemeral: true
         });
     }
@@ -48,12 +57,12 @@ module.exports = async (interaction) => {
     const logChannel = interaction.guild.channels.cache.get(config.ticketLogs);
 
     if (logChannel) {
-        await logChannel.send(
-            `👤 **Ticket Claimed**
+        await logChannel.send({
+            content: `👤 **Ticket Claimed**
 
 **Moderator:** ${interaction.user}
 **Ticket:** ${interaction.channel}`
-        );
+        });
     }
 
 };
