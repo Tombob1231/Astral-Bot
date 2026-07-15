@@ -15,7 +15,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor("#8A2BE2")
             .setImage("https://cdn.discordapp.com/attachments/1526902981516333186/1526914184489472190/Astral_Roster.png?ex=6a58c126&is=6a576fa6&hm=77db93beb7239f023f795fa42990503959abe56b41dc8af40c8e8b26cf5bd90c&")
-      .addFields(
+  .addFields(
     {
         name: "<:SSL:1526912212936036382> SSL",
         value: "👑 Player 1\n👑 Player 2"
