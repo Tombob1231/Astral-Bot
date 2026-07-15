@@ -21,15 +21,21 @@ module.exports = {
                 .setRequired(true)
         ),
 
-    async execute(interaction) {
+   async execute(interaction) {
 
-        // Moderator role check
-        if (!interaction.member.roles.cache.has(config.modRole)) {
-            return interaction.reply({
-                content: "❌ You don't have permission to use this command.",
-                ephemeral: true
-            });
-        }
+    console.log("User:", interaction.user.tag);
+    console.log(
+        "Roles:",
+        interaction.member.roles.cache.map(role => `${role.name} (${role.id})`)
+    );
+
+    // Moderator role check
+    if (!interaction.member.roles.cache.has(config.modRole)) {
+        return interaction.reply({
+            content: "❌ You don't have permission to use this command.",
+            ephemeral: true
+        });
+    }
 
         const user = interaction.options.getUser("user");
         const member = interaction.guild.members.cache.get(user.id);
