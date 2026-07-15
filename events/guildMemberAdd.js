@@ -6,8 +6,6 @@ module.exports = {
 
     async execute(member) {
 
-        console.log(`${member.user.tag} joined the server.`);
-
         // Welcome channel
 
         // Welcome channel
