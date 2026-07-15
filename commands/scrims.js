@@ -23,6 +23,7 @@ module.exports = {
 📅 Friday, 18 July
 🕖 7:00 PM BST
 🏆 Community League
+📺 [Watch Live](📺 Stream: TBA)
 
 ━━━━━━━━━━━━━━━━━━━━━━
 
@@ -31,6 +32,7 @@ module.exports = {
 📅 Sunday, 20 July
 🕗 8:00 PM BST
 🏆 Weekly Scrim
+📺 [Watch Live](📺 Stream: TBA)
 
 ━━━━━━━━━━━━━━━━━━━━━━
 
@@ -39,6 +41,7 @@ module.exports = {
 📅 Tuesday, 22 July
 🕗 8:30 PM BST
 🏆 RLCS Open
+📺 [Watch Live](📺 Stream: TBA)
 
 ━━━━━━━━━━━━━━━━━━━━━━
 `)
