@@ -48,13 +48,14 @@ module.exports = async (interaction, type) => {
             case "team":
                 channelName = `team-${interaction.user.username}`;
                 title = "🎮 Team Application";
-                questions = `1️⃣ What game are you applying for?
+                questions = 
+`1️⃣What is your current/Peak rank?
 
-2️⃣ What is your rank?
+2️⃣ What is your availibility?
 
-3️⃣ What platform do you play on?
+3️⃣ What Kind of playstlye do you have?
 
-4️⃣ Previous teams?
+4️⃣ What region Do you play in?
 
 5️⃣ Why do you want to join Astral?`;
                 break;
