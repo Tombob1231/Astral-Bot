@@ -29,7 +29,9 @@ module.exports = {
 
 } catch (err) {
 
+    console.error("===== COMMAND ERROR =====");
     console.error(err);
+    console.error(err.stack);
 
     if (!interaction.replied && !interaction.deferred) {
         await interaction.reply({
