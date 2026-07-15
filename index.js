@@ -6,12 +6,6 @@ const path = require("path");
 
 require("./database/setup");
 
-const {
-    Client,
-    GatewayIntentBits,
-    Collection
-} = require('discord.js');
-
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -28,16 +22,12 @@ client.commands = new Collection();
 */
 
 const commandFiles = fs
-    .readdirSync(path.join(__dirname, 'commands'))
-    .filter(file => file.endsWith('.js'));
+    .readdirSync(path.join(__dirname, "commands"))
+    .filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles) {
     try {
         const command = require(`./commands/${file}`);
-
-if (file === "ban.js") {
-    console.log(command);
-}
 
         console.log(`Loading: ${file}`);
 
@@ -59,25 +49,21 @@ if (file === "ban.js") {
 */
 
 const eventFiles = fs
-    .readdirSync(path.join(__dirname, 'events'))
-    .filter(file => file.endsWith('.js'));
+    .readdirSync(path.join(__dirname, "events"))
+    .filter(file => file.endsWith(".js"));
 
 for (const file of eventFiles) {
 
     const event = require(`./events/${file}`);
 
     if (event.once) {
-
         client.once(event.name, (...args) =>
             event.execute(...args, client)
         );
-
     } else {
-
         client.on(event.name, (...args) =>
             event.execute(...args, client)
         );
-
     }
 
 }
