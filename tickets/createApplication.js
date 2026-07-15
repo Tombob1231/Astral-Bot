@@ -94,11 +94,14 @@ module.exports = async (interaction, type) => {
         );
 
         const channel = await interaction.guild.channels.create({
-            name: channelName,
-            type: ChannelType.GuildText,
-            parent: config.applicationsCategory,
+    name: channelName,
+    type: ChannelType.GuildText,
+    parent: config.applicationsCategory,
 
-            permissionOverwrites: [
+    // Store the applicant's ID
+    topic: `Applicant:${interaction.user.id}`,
+
+    permissionOverwrites: [
                 {
                     id: interaction.guild.id,
                     deny: [PermissionFlagsBits.ViewChannel]
