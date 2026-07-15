@@ -13,5 +13,8 @@ module.exports = {
 
     automodWarnings: 3,
 
-    memberCountChannel: "1526906615284895774"
+    memberCountChannel: "1526906615284895774",
+
+    rosterChannel: "1526675651980038376",
+
 };
