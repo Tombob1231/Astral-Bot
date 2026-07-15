@@ -7,6 +7,9 @@ module.exports = {
 
     async execute(message) {
 
+        console.log("Message:", message.content);
+console.log("Everyone mention:", message.mentions.everyone);
+
         // Ignore bots
         if (message.author.bot) return;
 
