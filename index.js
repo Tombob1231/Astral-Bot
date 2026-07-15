@@ -36,7 +36,8 @@ for (const file of commandFiles) {
             continue;
         }
 
-        client.commands.set(command.data.name, command);
+        console.log(`Registered command: ${command.data.name} (${file})`);
+client.commands.set(command.data.name, command);
 
     } catch (err) {
         console.log(`❌ Error loading ${file}`);

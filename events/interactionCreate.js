@@ -19,7 +19,9 @@ module.exports = {
 
            try {
 
-    console.log(`Running command: ${interaction.commandName}`);
+    console.log(
+    `Running command: ${interaction.commandName} ${interaction.options.getSubcommand?.() ?? ""}`
+);
 
     await command.execute(interaction);
 

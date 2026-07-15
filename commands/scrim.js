@@ -3,10 +3,12 @@ const {
     PermissionFlagsBits
 } = require("discord.js");
 
+const db = require("../database/database");
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("scrim")
-        .setDescription("Manage Astral scrims.")
+        .setDescription("TEST 123")
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 
         .addSubcommand(subcommand =>
@@ -52,18 +54,28 @@ module.exports = {
             const tournament = interaction.options.getString("tournament");
             const stream = interaction.options.getString("stream");
 
-            await interaction.reply({
-                content:
-`✅ Scrim received!
+            db.run(
+    `INSERT INTO scrims (opponent, date, time, tournament, stream)
+     VALUES (?, ?, ?, ?, ?)`,
+    [opponent, date, time, tournament, stream],
+    async (err) => {
 
-Opponent: ${opponent}
-Date: ${date}
-Time: ${time}
-Tournament: ${tournament}
-Stream: ${stream}`,
+        if (err) {
+            console.error(err);
+
+            return interaction.reply({
+                content: "❌ Failed to save the scrim.",
                 ephemeral: true
             });
+        }
 
+        await interaction.reply({
+    content: "✅ Scrim added successfully!",
+    ephemeral: true
+});
+
+    }
+);
         }
 
     }
