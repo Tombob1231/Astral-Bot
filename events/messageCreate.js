@@ -16,65 +16,11 @@ module.exports = {
         // Ignore moderators
         if (message.member.roles.cache.has(config.modRole)) return;
 
-        // Anti Discord Invites
-        const inviteRegex = /(discord\.gg|discord\.com\/invite)\/\S+/i;
+        // ===========================
+        // Anti @everyone / @here
+        // ===========================
 
-        if (inviteRegex.test(message.content)) {
-
-            // Anti @everyone / @here
-if (message.mentions.everyone) {
-
-    await message.delete().catch(() => {});
-
-    const userId = message.author.id;
-
-    const currentWarnings = (warnings.get(userId) || 0) + 1;
-    warnings.set(userId, currentWarnings);
-
-    await message.channel.send({
-        content: `⚠️ ${message.author}, using @everyone or @here isn't allowed. (${currentWarnings}/${config.automodWarnings})`
-    });
-
-    if (currentWarnings >= config.automodWarnings) {
-
-        warnings.set(userId, 0);
-
-        try {
-
-            await message.member.timeout(
-                config.automodTimeout * 60 * 1000,
-                "AutoMod: Everyone mention spam."
-            );
-
-            await message.channel.send({
-                content: `⏰ ${message.author} has been timed out for ${config.automodTimeout} minutes.`
-            });
-
-        } catch (err) {
-            console.log(err);
-        }
-
-    }
-
-    const logChannel = message.guild.channels.cache.get(config.automodLogs);
-
-    if (logChannel) {
-
-        await logChannel.send({
-            content:
-`🚫 **AutoMod**
-
-**User:** ${message.author}
-**Reason:** @everyone / @here
-**Warnings:** ${currentWarnings}/${config.automodWarnings}`
-        });
-
-    }
-
-    return;
-}
-
-            
+        if (message.mentions.everyone) {
 
             await message.delete().catch(() => {});
 
@@ -84,10 +30,9 @@ if (message.mentions.everyone) {
             warnings.set(userId, currentWarnings);
 
             await message.channel.send({
-                content: `⚠️ ${message.author}, Discord invite links aren't allowed. (${currentWarnings}/${config.automodWarnings})`
+                content: `⚠️ ${message.author}, using @everyone or @here isn't allowed. (${currentWarnings}/${config.automodWarnings})`
             });
 
-            // Auto timeout
             if (currentWarnings >= config.automodWarnings) {
 
                 warnings.set(userId, 0);
@@ -96,7 +41,7 @@ if (message.mentions.everyone) {
 
                     await message.member.timeout(
                         config.automodTimeout * 60 * 1000,
-                        "AutoMod: Too many invite links."
+                        "AutoMod: Everyone mention."
                     );
 
                     await message.channel.send({
@@ -109,7 +54,65 @@ if (message.mentions.everyone) {
 
             }
 
-            // Log
+            const logChannel = message.guild.channels.cache.get(config.automodLogs);
+
+            if (logChannel) {
+
+                await logChannel.send({
+                    content:
+`🚫 **AutoMod**
+
+**User:** ${message.author}
+**Reason:** @everyone / @here
+**Warnings:** ${currentWarnings}/${config.automodWarnings}`
+                });
+
+            }
+
+            return;
+
+        }
+
+        // ===========================
+        // Anti Discord Invites
+        // ===========================
+
+        const inviteRegex = /(discord\.gg|discord\.com\/invite)\/\S+/i;
+
+        if (inviteRegex.test(message.content)) {
+
+            await message.delete().catch(() => {});
+
+            const userId = message.author.id;
+
+            const currentWarnings = (warnings.get(userId) || 0) + 1;
+            warnings.set(userId, currentWarnings);
+
+            await message.channel.send({
+                content: `⚠️ ${message.author}, Discord invite links aren't allowed. (${currentWarnings}/${config.automodWarnings})`
+            });
+
+            if (currentWarnings >= config.automodWarnings) {
+
+                warnings.set(userId, 0);
+
+                try {
+
+                    await message.member.timeout(
+                        config.automodTimeout * 60 * 1000,
+                        "AutoMod: Invite Links."
+                    );
+
+                    await message.channel.send({
+                        content: `⏰ ${message.author} has been timed out for ${config.automodTimeout} minutes.`
+                    });
+
+                } catch (err) {
+                    console.log(err);
+                }
+
+            }
+
             const logChannel = message.guild.channels.cache.get(config.automodLogs);
 
             if (logChannel) {
@@ -124,6 +127,8 @@ if (message.mentions.everyone) {
                 });
 
             }
+
+                 return;
 
         }
 
