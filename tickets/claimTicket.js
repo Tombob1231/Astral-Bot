@@ -1,3 +1,5 @@
+const config = require("../config");
+
 const {
     ActionRowBuilder,
     ButtonBuilder,
@@ -7,6 +9,13 @@ const {
 const config = require("../config");
 
 module.exports = async (interaction) => {
+
+      if (!interaction.member.roles.cache.has(config.modRole)) {
+        return interaction.reply({
+            content: "❌ Only moderators can claim tickets.",
+            ephemeral: true
+        });
+    }
 
     const row = interaction.message.components[0];
     const newRow = new ActionRowBuilder();
