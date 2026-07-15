@@ -3,6 +3,8 @@ const {
     EmbedBuilder
 } = require("discord.js");
 
+console.log("LOADED ROSTER.JS - VERSION 2");
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("roster")
