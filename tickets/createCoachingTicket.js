@@ -34,7 +34,9 @@ const row = new ActionRowBuilder().addComponents(
         .setStyle(ButtonStyle.Danger)
 );
 await channel.send({
-    content: `🎓 **Coaching Request**
+    content: `<@&1502684947993989253> <@&1501306073607307334>
+
+🎓 **Coaching Request**
 
 Welcome ${interaction.user}!
 
@@ -48,10 +50,4 @@ Please answer the following:
 A coach will respond as soon as possible.`,
     components: [row]
 });
-
-    await interaction.reply({
-        content: `✅ Your coaching request has been created: ${channel}`,
-        ephemeral: true
-    });
-
 };

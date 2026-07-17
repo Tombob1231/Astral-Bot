@@ -76,20 +76,20 @@ if (interaction.customId === "deny_application") {
                     await interaction.channel.delete().catch(console.error);
                 }, 5000);
 
-                if (interaction.customId === "close_coaching_ticket") {
+                return;
+            }
+if (interaction.customId === "close_coaching_ticket") {
     await interaction.reply({
-        content: "🔒 Closing ticket in 5 seconds...",
+        content: "🔒 Closing coaching ticket in 5 seconds...",
         ephemeral: true
     });
 
     setTimeout(async () => {
         await interaction.channel.delete().catch(console.error);
     }, 5000);
+
+    return;
 }
-
-                return;
-            }
-
             if (interaction.customId === "delete_ticket") {
                 return await deleteTicket(interaction);
             }
