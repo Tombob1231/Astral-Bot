@@ -8,25 +8,42 @@ const {
 
 module.exports = async (interaction) => {
 
-    const channel = await interaction.guild.channels.create({
+  const TEST_COACH_ROLE = "1502684947993989253";
+const COACH_ROLE = "1501306073607307334";
+
+const channel = await interaction.guild.channels.create({
     name: `coaching-${interaction.user.username}`,
     type: ChannelType.GuildText,
     parent: "1527706872398745813",
 
     permissionOverwrites: [
-            {
-                id: interaction.guild.id,
-                deny: [PermissionFlagsBits.ViewChannel]
-            },
-            {
-                id: interaction.user.id,
-                allow: [
-                    PermissionFlagsBits.ViewChannel,
-                    PermissionFlagsBits.SendMessages
-                ]
-            }
-        ]
-    });
+        {
+            id: interaction.guild.id,
+            deny: [PermissionFlagsBits.ViewChannel]
+        },
+        {
+            id: interaction.user.id,
+            allow: [
+                PermissionFlagsBits.ViewChannel,
+                PermissionFlagsBits.SendMessages
+            ]
+        },
+        {
+            id: TEST_COACH_ROLE,
+            allow: [
+                PermissionFlagsBits.ViewChannel,
+                PermissionFlagsBits.SendMessages
+            ]
+        },
+        {
+            id: COACH_ROLE,
+            allow: [
+                PermissionFlagsBits.ViewChannel,
+                PermissionFlagsBits.SendMessages
+            ]
+        }
+    ]
+});
 const row = new ActionRowBuilder().addComponents(
     new ButtonBuilder()
         .setCustomId("close_coaching_ticket")
