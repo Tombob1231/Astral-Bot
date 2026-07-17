@@ -1,15 +1,19 @@
 const {
     ChannelType,
-    PermissionFlagsBits
+    PermissionFlagsBits,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle
 } = require("discord.js");
 
 module.exports = async (interaction) => {
 
     const channel = await interaction.guild.channels.create({
-        name: `coaching-${interaction.user.username}`,
-        type: ChannelType.GuildText,
+    name: `coaching-${interaction.user.username}`,
+    type: ChannelType.GuildText,
+    parent: "1527706872398745813",
 
-        permissionOverwrites: [
+    permissionOverwrites: [
             {
                 id: interaction.guild.id,
                 deny: [PermissionFlagsBits.ViewChannel]
@@ -23,10 +27,14 @@ module.exports = async (interaction) => {
             }
         ]
     });
-
-    await channel.send({
-        content:
-`🎓 **Coaching Request**
+const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+        .setCustomId("close_coaching_ticket")
+        .setLabel("🔒 Close Ticket")
+        .setStyle(ButtonStyle.Danger)
+);
+await channel.send({
+    content: `🎓 **Coaching Request**
 
 Welcome ${interaction.user}!
 
@@ -37,8 +45,9 @@ Please answer the following:
 • What do you want help improving?
 • How often can you practice?
 
-A coach will respond as soon as possible.`
-    });
+A coach will respond as soon as possible.`,
+    components: [row]
+});
 
     await interaction.reply({
         content: `✅ Your coaching request has been created: ${channel}`,
