@@ -57,16 +57,16 @@ module.exports = {
                 .slice(i, i + 5)
                 .forEach(rank => {
 
-                    const emojiId = rank.emoji.match(/\d+/)[0];
-
-                    row.addComponents(
-                        new ButtonBuilder()
-                            .setCustomId(rank.customId)
-                            .setLabel(rank.label)
-                            .setEmoji(emojiId)
-                            .setStyle(ButtonStyle.Secondary)
-                    );
-
+                 row.addComponents(
+    new ButtonBuilder()
+        .setCustomId(rank.customId)
+        .setLabel(rank.label)
+        .setEmoji({
+            id: rank.emoji.match(/\d+/)[0],
+            name: rank.emoji.match(/<:([^:]+):/)[1]
+        })
+        .setStyle(ButtonStyle.Secondary)
+);
                 });
 
             rlRows.push(row);
