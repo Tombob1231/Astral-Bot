@@ -18,12 +18,6 @@ module.exports = {
         .setLabel("Coach Application")
         .setEmoji("🏆")
         .setStyle(ButtonStyle.Success),
-   
-        new ButtonBuilder()
-        .setCustomId("apply_team")
-        .setLabel("Team Application")
-        .setEmoji("🎮")
-        .setStyle(ButtonStyle.Primary),
 
         new ButtonBuilder()
         .setCustomId("apply_mod")
