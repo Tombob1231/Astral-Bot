@@ -95,6 +95,10 @@ if (interaction.customId === "apply_team") {
     return await createApplication(interaction, "team");
 }
 
+if (interaction.customId === "Request_Coaching") {
+    return await require("../tickets/createCoachingTicket")(interaction);
+}
+
         }
 
     }

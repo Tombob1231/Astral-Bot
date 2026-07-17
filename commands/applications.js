@@ -12,24 +12,28 @@ module.exports = {
 
     async execute(interaction) {
 
-        const row = new ActionRowBuilder().addComponents(
+    const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+        .setCustomId("apply_team")
+        .setLabel("Team Application")
+        .setStyle(ButtonStyle.Primary),
 
-            new ButtonBuilder()
-                .setCustomId("apply_coach")
-                .setLabel("🏆 Apply for Coach")
-                .setStyle(ButtonStyle.Primary),
+    new ButtonBuilder()
+        .setCustomId("apply_coach")
+        .setLabel("Coach Application")
+        .setStyle(ButtonStyle.Success),
 
-            new ButtonBuilder()
-                .setCustomId("apply_mod")
-                .setLabel("🛡️ Apply for Moderator")
-                .setStyle(ButtonStyle.Success),
+    new ButtonBuilder()
+        .setCustomId("apply_mod")
+        .setLabel("Moderator Application")
+        .setStyle(ButtonStyle.Secondary),
 
-            new ButtonBuilder()
-                .setCustomId("apply_team")
-                .setLabel("🎮 Apply for a Team")
-                .setStyle(ButtonStyle.Secondary)
-
-        );
+    new ButtonBuilder()
+        .setCustomId("ask_coaching")
+        .setLabel("Ask for Coaching")
+        .setEmoji("🎓")
+        .setStyle(ButtonStyle.Danger)
+);
 
         await interaction.reply({
             content:
