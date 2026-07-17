@@ -13,24 +13,33 @@ module.exports = {
     async execute(interaction) {
 
     const row = new ActionRowBuilder().addComponents(
-    new ButtonBuilder()
+     new ButtonBuilder()
+        .setCustomId("apply_coach")
+        .setLabel("Coach Application")
+        .setEmoji("🏆")
+        .setStyle(ButtonStyle.Success),
+   
+        new ButtonBuilder()
         .setCustomId("apply_team")
         .setLabel("Team Application")
+        .setEmoji("🎮")
+        .setStyle(ButtonStyle.Primary),
+
+        new ButtonBuilder()
+        .setCustomId("apply_mod")
+        .setLabel("Moderator Application")
+        .setEmoji("🛡️")
+        .setStyle(ButtonStyle.Secondary),
+
+           new ButtonBuilder()
+        .setCustomId("apply_team")
+        .setLabel("Team Application")
+        .setEmoji("🎮")
         .setStyle(ButtonStyle.Primary),
 
     new ButtonBuilder()
-        .setCustomId("apply_coach")
-        .setLabel("Coach Application")
-        .setStyle(ButtonStyle.Success),
-
-    new ButtonBuilder()
-        .setCustomId("apply_mod")
-        .setLabel("Moderator Application")
-        .setStyle(ButtonStyle.Secondary),
-
-    new ButtonBuilder()
-        .setCustomId("ask_coaching")
-        .setLabel("Ask for Coaching")
+        .setCustomId("request_coaching")
+.setLabel("Request Coaching")
         .setEmoji("🎓")
         .setStyle(ButtonStyle.Danger)
 );

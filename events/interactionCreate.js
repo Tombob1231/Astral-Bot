@@ -95,10 +95,9 @@ if (interaction.customId === "apply_team") {
     return await createApplication(interaction, "team");
 }
 
-if (interaction.customId === "Request_Coaching") {
+if (interaction.customId === "request_coaching") {
     return await require("../tickets/createCoachingTicket")(interaction);
 }
-
         }
 
     }
