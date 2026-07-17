@@ -4,6 +4,7 @@ const claimTicket = require("../tickets/claimTicket");
 const createApplication = require("../tickets/createApplication");
 const acceptApplication = require("../tickets/acceptApplication");
 const denyApplication = require("../tickets/denyApplication");
+const roleManager = require("../utils/roleManager");
 
 module.exports = {
     name: "interactionCreate",
@@ -46,8 +47,47 @@ console.log(`Running command: ${interaction.commandName}`);
 return;
         }
 
-        // Buttons
-        if (interaction.isButton()) {
+       // Buttons
+if (interaction.isButton()) {
+
+    const roleButtons = [
+        "role_announcements",
+        "role_socials",
+        "role_lft",
+        "role_lfp",
+
+        "rl_p1",
+        "rl_p2",
+        "rl_p3",
+
+        "rl_d1",
+        "rl_d2",
+        "rl_d3",
+
+        "rl_c1",
+        "rl_c2",
+        "rl_c3",
+
+        "rl_gc1",
+        "rl_gc2",
+        "rl_gc3",
+
+        "rl_ssl"
+    ];
+
+    if (roleButtons.includes(interaction.customId)) {
+        return await roleManager(interaction);
+    }
+
+    if (interaction.customId === "accept_application") {
+        return await acceptApplication(interaction);
+    }
+
+    if (interaction.customId === "deny_application") {
+        return await denyApplication(interaction);
+    }
+
+    // ...the rest of your existing button handlers...
 
             if (interaction.customId === "accept_application") {
     return await acceptApplication(interaction);
