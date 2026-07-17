@@ -17,7 +17,10 @@ module.exports = {
 
     async execute(interaction) {
 
+        // =========================
         // Notifications
+        // =========================
+
         const notificationsEmbed = new EmbedBuilder()
             .setColor("#00B0F4")
             .setTitle("🔔 Notification Roles")
@@ -25,7 +28,8 @@ module.exports = {
                 "Choose which notifications you'd like to receive.\n\nClick again to remove a role."
             );
 
-        const notificationButtons = new ActionRowBuilder().addComponents(
+        const notificationRow = new ActionRowBuilder().addComponents(
+
             new ButtonBuilder()
                 .setCustomId(roles.notifications.announcements.customId)
                 .setLabel(roles.notifications.announcements.label)
@@ -37,14 +41,18 @@ module.exports = {
                 .setLabel(roles.notifications.socials.label)
                 .setEmoji(roles.notifications.socials.emoji)
                 .setStyle(ButtonStyle.Primary)
+
         );
 
+        // =========================
         // Rocket League
+        // =========================
+
         const rlEmbed = new EmbedBuilder()
             .setColor("#00B0F4")
             .setTitle("🚀 Rocket League Ranks")
             .setDescription(
-                "Select your **current Rocket League rank**.\n\nYou can only have **one** rank at a time."
+                "Select your **current Rocket League rank**.\n\nYou can only have **ONE** Rocket League rank at a time."
             );
 
         const rlRows = [];
@@ -53,35 +61,36 @@ module.exports = {
 
             const row = new ActionRowBuilder();
 
-            roles.rocketLeague
-                .slice(i, i + 5)
-                .forEach(rank => {
+            for (const rank of roles.rocketLeague.slice(i, i + 5)) {
 
-                 row.addComponents(
-    new ButtonBuilder()
-        .setCustomId(rank.customId)
-        .setLabel(rank.label)
-        .setEmoji({
-            id: rank.emoji.match(/\d+/)[0],
-            name: rank.emoji.match(/<:([^:]+):/)[1]
-        })
-        .setStyle(ButtonStyle.Secondary)
-);
-                });
+                row.addComponents(
+
+                    new ButtonBuilder()
+                        .setCustomId(rank.customId)
+                        .setLabel(rank.label)
+                        .setEmoji(rank.emoji)
+                        .setStyle(ButtonStyle.Secondary)
+
+                );
+
+            }
 
             rlRows.push(row);
 
         }
 
+        // =========================
         // Community
+        // =========================
+
         const communityEmbed = new EmbedBuilder()
             .setColor("#00B0F4")
             .setTitle("🤝 Community Roles")
             .setDescription(
-                "Let other members know what you're looking for."
+                "Tell other members what you're looking for."
             );
 
-        const communityButtons = new ActionRowBuilder().addComponents(
+        const communityRow = new ActionRowBuilder().addComponents(
 
             new ButtonBuilder()
                 .setCustomId(roles.community.lft.customId)
@@ -97,9 +106,13 @@ module.exports = {
 
         );
 
+        // =========================
+        // Send Messages
+        // =========================
+
         await interaction.channel.send({
             embeds: [notificationsEmbed],
-            components: [notificationButtons]
+            components: [notificationRow]
         });
 
         await interaction.channel.send({
@@ -109,11 +122,11 @@ module.exports = {
 
         await interaction.channel.send({
             embeds: [communityEmbed],
-            components: [communityButtons]
+            components: [communityRow]
         });
 
         await interaction.reply({
-            content: "✅ Role panel posted!",
+            content: "✅ Role panel posted successfully!",
             ephemeral: true
         });
 
